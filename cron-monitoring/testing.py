@@ -1,10 +1,12 @@
 import psutil
 import json
 import time
+import catch_status
 
 p = psutil.pids()
 cron_map = {}
 active_cron_jobs = []
+active_process_ids = []
 
 def create_new_process_object(current_process_object, original_process_object):
     # compare among the childrens
@@ -12,13 +14,6 @@ def create_new_process_object(current_process_object, original_process_object):
     # And, if the current_process_object child is in the original_process_object then compare their children iteratively
 
     new_object = original_process_object
-    # print("--------")
-    # print(cron_map)
-    # print("--------")
-    # print(current_process_object)
-    # print("--------")
-    # print(original_process_object)
-    # print("-----x--")
     new_object['status'] = 'active'
     original_childrens = {}
     original_childrens_index = {}
@@ -92,6 +87,8 @@ def processes_to_ignore():
 def get_child_processes(parent_pid, level=0):
     try:
         parent_process = psutil.Process(parent_pid)
+        active_process_ids.append(parent_pid)
+        print(active_process_ids)
         child_processes = parent_process.children(recursive=False)
         response = []
 
@@ -157,13 +154,12 @@ def set_current_active(active_processes):
 def get_cron_tree():
     # Replace 'your_parent_pid' with the actual PID of the process you're interested in
     parent_pid = cron_process_id
+
+    # active_process_ids = []
+
     response = get_child_processes(parent_pid, 0)
+    print(active_process_ids)
     active_cron_jobs = response
-    # print(json.dumps(response, indent=2))
-    # print(response)
-    # return response
-    print("PRINTING RESPONSE")
-    print(response)
 
     modify_cron_map(response)
 
@@ -176,6 +172,10 @@ def get_cron_tree():
 
     # for entry in cron_map.values():
     set_current_active(response)
+
+    print("GOING TO PRINT EXIT STATUS")
+    print(active_process_ids)
+    # catch_status.get_status_of_processes(active_process_ids)
 
     # need to merge cron_map with active cron job and return new response
 
