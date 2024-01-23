@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data GUI</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+  <div class="container">
+
+
+    <form action="#">
+      <!-- <p>Please select region and delay mode:</p>
+      <input type="radio" id="usa" name="region" value="USA">
+      <label for="usa">USA</label><br>
+      <input type="radio" id="ch" name="region" value="CH">
+      <label for="ch">CH</label><br>
+    
+      <br>  
+    
+      <p>Please select your age:</p>
+      <input type="radio" id="d1" name="delay_mode" value="d1">
+      <label for="d1">Delay 1</label><br>
+      <input type="radio" id="hhmm" name="delay_mode" value="hhmm">
+      <label for="hhmm">Delay 0 - HHMM</label><br>  
+      <input type="radio" id="intra" name="delay_mode" value="intra">
+      <label for="intra">Delay 0 - INTRA</label><br><br> -->
+
+      <select class="form-select" id="region-select" aria-label="Default select example">
+        <option selected value="USA">USA</option>
+        <option value="CH">CH</option>
+        <option value="EU">EU</option>
+      </select>
+
+
+      <select class="form-select" id="delay-mode-select" aria-label="Default select example">
+        <option selected value="d1">D1</option>
+        <option value="hhmm">D0 - hhmm</option>
+        <option value="intra">D0 - intra</option>
+      </select>
+
+      <select class="form-select" id="check-function-select" aria-label="Default select example">
+        <option selected value="check_not_all_zero_or_nan_valid">check_not_all_zero_or_nan_valid</option>
+        <option value="check_nonnan_nonzero_cnt_min">check_nonnan_nonzero_cnt_min</option>
+        <option value="check_nonzero_nonnan_cnt_valid">check_nonzero_nonnan_cnt_valid</option>
+        <option value="check_correlation_less_than_1">check_correlation_less_than_1</option>
+      </select>
+
+      <button type="button" onclick="sendData()"> SUBMIT </button>
+    </form>
+    
+
+    <!-- <h1>Data Check UI</h1>
+    
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link region-tab active" aria-current="page" href="#" id="USA">USA</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link region-tab" href="#" id="AU">AU</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link region-tab" href="#" id="CH">CH</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link region-tab disabled" aria-disabled="true" id="CN">CN</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link region-tab disabled" aria-disabled="true" id="EU">EU</a>
+      </li>
+    </ul>
+    
+    <div id="data_check_dashboard">
+      
+    </div> -->
+  </div>
+  
+  <script src="./script.js"></script>
+</body>
+</html>

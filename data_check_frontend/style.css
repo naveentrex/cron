@@ -1,0 +1,23 @@
+#body {
+  padding: 10px;
+}
+
+.cron_step {
+  border-left: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.active {
+  background-color: #BFE1A8;
+}
+.inactive {
+  background-color:  #F0F4ED;
+}
+
+#active_running_jobs {
+  /* width: 100vw; */
+  padding: 15px;
+  margin: 15px;
+  border: 2px solid black;
+}
